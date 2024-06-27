@@ -1,3 +1,5 @@
+using System.Configuration;
+using WebApiZoo.Databse;
 using WebApiZoo.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IZooRepository, ZooRepository>();
-
+//builder.Services.AddDbContext<ZooDbContext>(options =>
+//        options.UseSqlServer(Configuration.GetConnectionString("DbConnectionString")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

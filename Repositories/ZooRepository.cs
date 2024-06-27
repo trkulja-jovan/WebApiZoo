@@ -30,7 +30,7 @@ namespace WebApiZoo.Repositories
             return _zoo.GetAnimalsByNutritionType(nutritionType);
         }
 
-        public int GetFoodCount() => _zoo.GetFoodCount();
+        public int? GetFoodCount() => _zoo.GetFoodCount();
 
         public void AutoFeedAnimals()
         {

@@ -9,7 +9,7 @@ namespace WebApiZoo.Repositories
         void FeedAnimals();
         List<Animal> GetAllAnimals();
         void AddAnimal(Animal animal);
-        int GetFoodCount();
+        int? GetFoodCount();
         void AutoFeedAnimals();
         void SimulateFoodSupply(int foodAmount);
         void SimulateHunger(double hungerIncreaseFactor);
