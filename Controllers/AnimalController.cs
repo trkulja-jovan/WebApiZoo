@@ -28,5 +28,12 @@ namespace WebApiZoo.Controllers
             var animals = _repository.GetAnimalsByNutritionType(nutritionType);
             return Ok(animals);
         }
+
+        [HttpPost("simulatehunger")]
+        public IActionResult SimulateHunger(double hungerIncreaseFactor)
+        {
+            _repository.SimulateHunger(hungerIncreaseFactor);
+            return Ok();
+        }
     }
 }

@@ -34,5 +34,18 @@ namespace WebApiZoo.Controllers
             return Ok();
         }
 
+        [HttpPost("auto-feed")]
+        public IActionResult AutoFeedAnimals()
+        {
+            _repository.AutoFeedAnimals();
+            return Ok();
+        }
+
+        [HttpPost("simulate-supply")]
+        public IActionResult SimulateRegularFoodSupply(int foodAmount)
+        {
+            _repository.SimulateFoodSupply(foodAmount);
+            return Ok();
+        }
     }
 }

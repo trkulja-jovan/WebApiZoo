@@ -31,5 +31,20 @@ namespace WebApiZoo.Repositories
         }
 
         public int GetFoodCount() => _zoo.GetFoodCount();
+
+        public void AutoFeedAnimals()
+        {
+            _zoo.AutoFeedAnimals();
+        }
+
+        public void SimulateFoodSupply(int foodAmount)
+        {
+            _zoo.SimulateFoodSupply(foodAmount);
+        }
+
+        public void SimulateHunger(double hungerIncreaseFactor)
+        {
+            _zoo.SimulateHunger(hungerIncreaseFactor);
+        }
     }
 }

@@ -45,5 +45,52 @@ namespace WebApiZoo.Models
                 DecreaseFoodCount(foodConsumption);
             }
         }
+
+        public void AutoFeedAnimals()
+        {
+            if (foodCount > 0)
+            {
+                FeedAnimals();
+            }
+        }
+
+        public void SimulateBirthAndDeath(double birthProbability, double deathProbability)
+        {
+            Random random = new();
+
+            foreach (var animal in _animals)
+            {
+                if (random.NextDouble() < birthProbability)
+                {
+                    var newAnimal = new Animal 
+                    { 
+                        Name = animal.Name, 
+                        Characteristics = animal.Characteristics, 
+                        FoodConsumption = animal.FoodConsumption,
+                        AnimalNutritionType = animal.AnimalNutritionType
+                    };
+
+                    AddAnimal(newAnimal);
+                }
+
+                if (random.NextDouble() < deathProbability)
+                {
+                    _animals.Remove(animal);
+                }
+            }
+        }
+
+        public void SimulateFoodSupply(int foodAmount)
+        {
+            IncreaseFoodCount(foodAmount);
+        }
+
+        public void SimulateHunger(double hungerIncreaseFactor)
+        {
+            foreach (var animal in _animals)
+            {
+                animal.FoodConsumption = (int)(animal.FoodConsumption * hungerIncreaseFactor);
+            }
+        }
     }
 }
