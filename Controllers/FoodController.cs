@@ -13,7 +13,7 @@ namespace WebApiZoo.Controllers
             _repository = zooRepository;
         }
 
-        [HttpGet]
+        [HttpGet("foodcount")]
         public IActionResult GetFoodCount()
         {
             var foodCount = _repository.GetFoodCount();
